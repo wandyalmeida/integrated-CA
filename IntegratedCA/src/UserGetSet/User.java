@@ -8,8 +8,32 @@ package UserGetSet;
  */
 public class User {
         
-        private String email;
-        private String password;
+        private String email, password, name, surname;
+        private int userId;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
         public String getEmail() {
             return email;
@@ -28,8 +52,3 @@ public class User {
         }
         
     }
-//test
-
-
-    
-
