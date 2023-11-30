@@ -1,6 +1,4 @@
-package integratedca;
-
-import java.util.Scanner;
+package UserGetSet;
 
 /**
  *
@@ -9,8 +7,6 @@ import java.util.Scanner;
  *  Later it will connect to DataBase
  */
 public class User {
-    
-        Scanner mykb = new Scanner(System.in);
         
         private String email;
         private String password;
@@ -32,6 +28,7 @@ public class User {
         }
         
     }
+//test
 
 
     
