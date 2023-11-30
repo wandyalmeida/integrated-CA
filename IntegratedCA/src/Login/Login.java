@@ -12,7 +12,7 @@ public class Login implements LoginInterface {
 
     @Override
     public void login() {
-        
+        System.out.println("Nothing works yet, comming soon");
     }
 
     @Override
@@ -27,10 +27,26 @@ public class Login implements LoginInterface {
         System.out.println("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.");
         
         System.out.println("Select your option:");
+        System.out.println("Please select only numbers");
         System.out.println("1 - Login\n2 - SignUp");
-    }
-    
-    
-    
+        
+        String option = mykb.next();
+        
+        
+        switch(option){
+            case "1":
+                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+                login();
+            case "2":
+                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+                //SignUpUser();
+                menu();
+            default:
+                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+                System.out.println("Sorry, wrong option... Try again.");
+                menu();
+        }
+
+    }    
     
 }
