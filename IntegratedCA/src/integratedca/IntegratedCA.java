@@ -5,6 +5,7 @@ import Login.Login;
 /**
  *
  * @author Charles Rocha
+ * Only one method here
  */
 public class IntegratedCA  {
 
