@@ -1,6 +1,10 @@
 package integratedca;
 
 import Login.Login;
+import ReadFile.CSVReader;
+import ReadFile.Movies;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -19,6 +23,18 @@ public class IntegratedCA  {
         
         start.menu();
         
+        //This is to test 
+//        try {
+//             CSVReader csvReader = new CSVReader();
+//             ArrayList<Movies> movies = csvReader.readData();
+//
+//             for (Movies movie : movies) {
+//                 System.out.println(movie);
+//             }
+//         } catch (Exception e) {
+//             e.printStackTrace();
+//         }
+          
     }
     
 }
