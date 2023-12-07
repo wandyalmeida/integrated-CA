@@ -52,8 +52,7 @@ public class Login implements LoginInterface {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Username or password is invalid.");
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-                }
-                
+                }                
 
                }while(!rs.next());
                 
@@ -77,8 +76,7 @@ public class Login implements LoginInterface {
         System.out.println("Please select only numbers");
         System.out.println("1 - Login\n2 - SignUp");
         
-        String option = userInput.next();
-        
+        String option = userInput.next();        
         
         switch(option){
             case "1":
