@@ -2,7 +2,7 @@ package SignUp;
 
 /**
  *
- * @author Charles Rocha
+ * @author Charles Rocha 2021376
  */
 public interface SignUpInterface {
     

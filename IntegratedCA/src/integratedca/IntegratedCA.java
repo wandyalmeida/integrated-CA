@@ -9,20 +9,17 @@ import sql.CreateInsertDatabase;
 
 /**
  *
- * @author Charles Rocha
+ * @author Charles Rocha 2021376
  * Only one method here
  */
 public class IntegratedCA  {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
         
+           
          //Starting Database
-        //CreateInsertDatabase createDB = new CreateInsertDatabase();
-        //createDB.create_schema();
+        CreateInsertDatabase createDB = new CreateInsertDatabase();
+        createDB.create_schema();
         
         Login start = new Login();
         

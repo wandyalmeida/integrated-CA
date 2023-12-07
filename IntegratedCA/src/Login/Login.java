@@ -1,19 +1,66 @@
 package Login;
 
+import SignUp.SignUp;
+import UserGetSet.User;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
+import sql.Authentication;
+import sql.ConnectionRTE;
 
 /**
  *
- * @author Charles Rocha
+ * @author Charles Rocha 2021376
  */
 public class Login implements LoginInterface {
     
-    Scanner mykb = new Scanner (System.in);
+    Scanner userInput = new Scanner (System.in);
+    SignUp menuSignUp = new SignUp();
+    Connection connect;
 
     @Override
     public void login() {
-        System.out.println("Nothing works yet, comming soon");
-    }
+        System.out.println("");
+        try{
+            connect = new ConnectionRTE().connectDB();
+            String email, password;
+            //int userId;
+            ResultSet rs;
+
+            do{
+                System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+                System.out.println("Email: ");
+                email = userInput.nextLine();
+                System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+                System.out.println("Password: ");
+                password = userInput.nextLine();
+
+                User registeredUser = new User();
+                registeredUser.setEmail(email);
+                registeredUser.setPassword(password);
+
+                Authentication userAutentication = new Authentication();
+                rs = userAutentication.autenticationUesr(registeredUser);
+                
+                if (rs.next()) {
+                    System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+                    System.out.println("Sign In Successful");
+                    System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+                       }
+                else{
+                    System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+                    System.out.println("Username or password is invalid.");
+                    System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+                }
+                
+
+               }while(!rs.next());
+                
+           } catch (SQLException e){
+                System.out.println("Error in login " + e);
+            }
+        }
 
     @Override
     public void user(int userId) {
@@ -22,27 +69,26 @@ public class Login implements LoginInterface {
 
     @Override
     public void menu() {
-        System.out.println("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.");
+        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
         System.out.println("Welcome to  ÉirVid!\nIt is a pleasure to have you here!");
-        System.out.println("*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.*.");
+        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
         
         System.out.println("Select your option:");
         System.out.println("Please select only numbers");
         System.out.println("1 - Login\n2 - SignUp");
         
-        String option = mykb.next();
+        String option = userInput.next();
         
         
         switch(option){
             case "1":
-                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+                System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                 login();
             case "2":
-                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
-                //SignUpUser();
-                menu();
+                System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+                menuSignUp.SignUpUser();
             default:
-                System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
+                System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                 System.out.println("Sorry, wrong option... Try again.");
                 menu();
         }

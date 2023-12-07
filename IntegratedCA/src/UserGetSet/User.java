@@ -2,7 +2,7 @@ package UserGetSet;
 
 /**
  *
- * @author Charles Rocha
+ * @author Charles Rocha 2021376
  * This class will allow users to create and log into accounts with an email and a password.
  *  Later it will connect to DataBase
  * userId will be directly related to the moviesId
