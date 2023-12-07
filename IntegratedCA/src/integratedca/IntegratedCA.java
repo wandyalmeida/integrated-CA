@@ -5,6 +5,7 @@ import ReadFile.CSVReader;
 import ReadFile.Movies;
 import java.util.ArrayList;
 import java.util.Arrays;
+import sql.CreateInsertDatabase;
 
 /**
  *
@@ -18,6 +19,10 @@ public class IntegratedCA  {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+         //Starting Database
+        //CreateInsertDatabase createDB = new CreateInsertDatabase();
+        //createDB.create_schema();
         
         Login start = new Login();
         
