@@ -31,10 +31,10 @@ public class Login implements LoginInterface {
             do{
                 System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                 System.out.println("Email: ");
-                email = userInput.nextLine();
+                email = userInput.next();
                 System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                 System.out.println("Password: ");
-                password = userInput.nextLine();
+                password = userInput.next();
 
                 User registeredUser = new User();
                 registeredUser.setEmail(email);
@@ -46,12 +46,12 @@ public class Login implements LoginInterface {
                 if (rs.next()) {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Sign In Successful");
-                    System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-                       }
+                    menu();
+               }
                 else{
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Username or password is invalid.");
-                    System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+                    menu();
                 }                
 
                }while(!rs.next());
@@ -88,7 +88,6 @@ public class Login implements LoginInterface {
             default:
                 System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                 System.out.println("Sorry, wrong option... Try again.");
-                menu();
         }
 
     }    

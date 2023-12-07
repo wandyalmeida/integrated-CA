@@ -18,19 +18,19 @@ public class SignUp implements SignUpInterface{
         String email, password, name, surname; //Is it really necessary name and surname?
         
         //The following process will signUp an user
-        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-        System.out.println("email");
+        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+        System.out.println("email:");
         email = userInput.nextLine();
-        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-        System.out.println("password");
+        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+        System.out.println("password:");
         password = userInput.nextLine();
-        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-        System.out.println("name");
+        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+        System.out.println("name:");
         name = userInput.next();
-        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-        System.out.println("surname");
+        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+        System.out.println("surname:");
         surname = userInput.nextLine();
-        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
+        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
         
         User signUpUser = new User();
         signUpUser.setEmail(email);
