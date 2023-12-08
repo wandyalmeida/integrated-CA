@@ -25,7 +25,7 @@ public class SignUpClass implements SignUpClassInterface{
     @Override
     public void Sign_Up(User objsign_up){
        
-       String SQL_COMMAND = "insert into  users (email, password) values (?, ?)";// insert the new user on the DataBase.
+       String SQL_COMMAND = "insert into  users ( email, password, name, surname) values (?, ?, ?, ?)";// insert the new user on the DataBase.
 
         connect = new ConnectionRTE().connectDB();
 
@@ -34,8 +34,10 @@ public class SignUpClass implements SignUpClassInterface{
             Statement for collecting data from Sign up of users
             */
             pstm = connect.prepareStatement(SQL_COMMAND);
-            pstm.setString(1, objsign_up.getEmail());// set and get the equations.
+            pstm.setString(1, objsign_up.getEmail());// set and get the email.
             pstm.setString(2, objsign_up.getPassword());// set and get the password.
+            pstm.setString(3, objsign_up.getName());// set and get the name.
+            pstm.setString(4, objsign_up.getSurname());// set and get the surname.
             
             pstm.execute("USE rteplayer;");
             pstm.execute();
