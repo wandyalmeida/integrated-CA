@@ -1,5 +1,6 @@
 package Login;
 
+import InitialScreen.InitialScreen;
 import SignUp.SignUp;
 import UserGetSet.User;
 import java.sql.Connection;
@@ -17,6 +18,7 @@ public class Login implements LoginInterface {
     
     Scanner userInput = new Scanner (System.in);
     SignUp menuSignUp = new SignUp();
+    InitialScreen firstScreen = new InitialScreen();
     Connection connect;
 
     @Override
@@ -46,12 +48,12 @@ public class Login implements LoginInterface {
                 if (rs.next()) {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Sign In Successful");
-                    initialScreen();
+                    firstScreen.initialScreen();
                }
                 else{
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Username or password is invalid.");
-                    initialScreen();
+                    firstScreen.initialScreen();
                 }                
 
                }while(!rs.next());
@@ -66,30 +68,4 @@ public class Login implements LoginInterface {
         
     }
 
-    @Override
-    public void initialScreen() {
-        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-        System.out.println("Welcome to  ÉirVid!\nIt is a pleasure to have you here!");
-        System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-        
-        System.out.println("Select your option:");
-        System.out.println("Please select only numbers");
-        System.out.println("1 - Login\n2 - SignUp");
-        
-        String option = userInput.next();        
-        
-        switch(option){
-            case "1":
-                System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-                login();
-            case "2":
-                System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-                menuSignUp.SignUpUser();
-            default:
-                System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-                System.out.println("Sorry, wrong option... Try again.");
-        }
-
-    }    
-    
 }

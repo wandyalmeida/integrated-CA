@@ -8,6 +8,5 @@ public interface LoginInterface {
     
     public void login();
     public void user(int userId);
-    public void initialScreen(); //InitialScreen is a name that makes more sense
-    
+        
 }

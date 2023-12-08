@@ -1,6 +1,7 @@
 package integratedca;
 
-import Login.Login;
+import InitialScreen.InitialScreen;
+//import Login.Login;
 import ReadFile.CSVReader;
 import ReadFile.Movies;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ public class IntegratedCA  {
         CreateInsertDatabase createDB = new CreateInsertDatabase();
         createDB.create_schema();
         
-        Login start = new Login();
+        InitialScreen start = new InitialScreen();
         
         start.initialScreen();
         
