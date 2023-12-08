@@ -46,12 +46,12 @@ public class Login implements LoginInterface {
                 if (rs.next()) {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Sign In Successful");
-                    menu();
+                    initialScreen();
                }
                 else{
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Username or password is invalid.");
-                    menu();
+                    initialScreen();
                 }                
 
                }while(!rs.next());
@@ -67,7 +67,7 @@ public class Login implements LoginInterface {
     }
 
     @Override
-    public void menu() {
+    public void initialScreen() {
         System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
         System.out.println("Welcome to  ÉirVid!\nIt is a pleasure to have you here!");
         System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
