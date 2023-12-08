@@ -23,7 +23,7 @@ public class IntegratedCA  {
         
         Login start = new Login();
         
-        start.menu();
+        start.initialScreen();
         
         //This is to test 
 //        try {
