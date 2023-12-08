@@ -14,7 +14,7 @@ import sql.ConnectionRTE;
  *
  * @author Carolina Landim 2021226
  */
-public abstract class InsertMovie implements InsertMovieInterface {
+public class InsertMovie implements InsertMovieInterface {
     
     Connection connect;
     PreparedStatement pstm;
