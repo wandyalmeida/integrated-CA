@@ -44,8 +44,8 @@ public class CreateInsertDatabase implements CreateInsertDatabaseInterface {
             First Table: Users 
             
             user_id INT(20) PRIMARY KEY AUTO_INCREMENT,
-            first name VARCHAR(30),
-            last name VARCHAR(30),
+            name VARCHAR(30),
+            surname VARCHAR(30),
             email VARCHAR(100),
             password VARCHAR(20);
             */
@@ -53,8 +53,8 @@ public class CreateInsertDatabase implements CreateInsertDatabaseInterface {
             stmt.execute(
                     "CREATE TABLE IF NOT EXISTS users  ("
                             + "user_id INT(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,"
-                            + "first_name VARCHAR(30),"
-                            + "last_name VARCHAR(30),"
+                            + "name VARCHAR(30),"
+                            + "surname VARCHAR(30),"
                             + "email VARCHAR(100),"
                             + "password VARCHAR(20));"
             );
@@ -69,7 +69,7 @@ public class CreateInsertDatabase implements CreateInsertDatabaseInterface {
             stmt.execute(
                     "CREATE TABLE IF NOT EXISTS movies ("
                             + "movie_id INT(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,"
-                            + "name VARCHAR(80),"
+                            + "title VARCHAR(80),"
                             + "price DOUBLE(20,2));"               
             );
             

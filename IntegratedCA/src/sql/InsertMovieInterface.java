@@ -4,13 +4,14 @@
  */
 package sql;
 
-import UserGetSet.User;
+import ReadFile.Movies;
+
 
 /**
  *
  * @author carol
  */
-public interface GetMovieInterface {
+public interface InsertMovieInterface {
     
-    public void GetMovie(User objgetmovie);
+    public void InsertMovie(Movies objgetmovie);
 }
