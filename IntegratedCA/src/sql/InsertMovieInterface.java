@@ -9,7 +9,7 @@ import ReadFile.Movies;
 
 /**
  *
- * @author carol
+ * @author Carolina Landim 2021226
  */
 public interface InsertMovieInterface {
     

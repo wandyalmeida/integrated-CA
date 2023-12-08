@@ -12,14 +12,14 @@ import sql.ConnectionRTE;
 
 /**
  *
- * @author carol
+ * @author Carolina Landim 2021226
  */
 public abstract class InsertMovie implements InsertMovieInterface {
     
     Connection connect;
     PreparedStatement pstm;
     /* 
-        Insert the movies and prices on the DataBase.
+        Insert the movie titles and prices on the DataBase.
     */
 
     @Override
@@ -32,7 +32,7 @@ public abstract class InsertMovie implements InsertMovieInterface {
         try {
             /*
             Statement for collecting data from document that will give the 
-            required information : movie and price.
+            required information : movie title and price.
             */
             pstm = connect.prepareStatement(SQL_COMMAND);
             pstm.setString(1, objgetmovie.getTitle());// set and get the movie.
