@@ -11,34 +11,33 @@ import sql.CreateInsertDatabase;
 
 /**
  *
- * @author Charles Rocha 2021376
- * Only one method here
+ * @author Charles Rocha 2021376 Only one method here
  */
-public class IntegratedCA  {
+public class IntegratedCA {
 
     public static void main(String[] args) {
-        
-           
+
         /**
          * CompletableFuture is used to create the DataBase and insert the films
-         * into the DataBase, this is done in the background to give 
-         * the User time to Register or Login to the System.
-         **/ 
-        CompletableFuture<Void> csvTask = CompletableFuture.runAsync(()->{
+         * into the DataBase, this is done in the background to give the User
+         * time to Register or Login to the System.
+         *
+         */
+        CompletableFuture<Void> csvTask = CompletableFuture.runAsync(() -> {
             //Starting Database
             CreateInsertDatabase createDB = new CreateInsertDatabase();
             createDB.create_schema();
             CSVReader csvReader = new CSVReader();
             csvReader.readData();
-    
+
         });
-        
+
         InitialScreen start = new InitialScreen();
-        
+
         start.initialScreen();
-        
+
         csvTask.join();
-        
+
         //This is to test 
 //        try {
 //             CSVReader csvReader = new CSVReader();
@@ -50,7 +49,6 @@ public class IntegratedCA  {
 //         } catch (Exception e) {
 //             e.printStackTrace();
 //         }
-          
     }
-    
+
 }

@@ -48,12 +48,10 @@ public class Login implements LoginInterface {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Sign In Successful");
                     firstScreen.initialScreen();
-//                    break;
                 } else {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Username or password is invalid.");
                     firstScreen.initialScreen();
-//                    break;
                 }
 
             } while (!rs.next());
