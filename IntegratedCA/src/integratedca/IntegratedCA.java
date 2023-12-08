@@ -12,6 +12,10 @@ import sql.CreateInsertDatabase;
 /**
  *
  * @author Charles Rocha 2021376 Only one method here
+ * @author Charles Rocha 2021376
+ * @author Wandwilson Almeida 2021230
+ * @author Carolina Gomes Landim
+ * @author Lucas Barbosa
  */
 public class IntegratedCA {
 

@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import sql.CheckMovies;
+import sql.InsertMovie;
 
 /**
  *
@@ -20,6 +22,8 @@ public class CSVReader extends FileIO implements CSVReaderInterface {
     private String[] header;
     ArrayList<Movies> movies = new ArrayList<>();
     Map<String, Integer> columnIndexMap;
+    CheckMovies checkMovies = new CheckMovies();
+    InsertMovie insertMovie = new InsertMovie();
     
     @Override
     public ArrayList<Movies> readData() {
@@ -47,13 +51,15 @@ public class CSVReader extends FileIO implements CSVReaderInterface {
 
                 // Handle the value of column K as price only if it's a number
                 String priceValue = values[columnIndexMap.get("price")].trim();
-                try {
-                    double price = Double.parseDouble(priceValue);
-                    movie.setPrice(price);  // Column K (index 10)
-                    movies.add(movie);
-                } catch (NumberFormatException e) { //Show this error if one of the movie do not have a price
-                    System.out.println("Value of the price column: " + priceValue);
+
+                double price = Double.parseDouble(priceValue);
+                movie.setPrice(price);  // Column K (index 10)
+                // Check if the movie already exists in the database
+                if (!checkMovies.CheckMovies(movie)) {
+                    // Insert into the database
+                    insertMovie.InsertMovie(movie);
                 }
+
             }
 
             readFile.close();
