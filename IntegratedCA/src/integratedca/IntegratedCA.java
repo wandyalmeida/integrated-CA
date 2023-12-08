@@ -1,10 +1,12 @@
 package integratedca;
 
-import Login.Login;
+import InitialScreen.InitialScreen;
+//import Login.Login;
 import ReadFile.CSVReader;
 import ReadFile.Movies;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.CompletableFuture;
 import sql.CreateInsertDatabase;
 
 /**
@@ -17,13 +19,25 @@ public class IntegratedCA  {
     public static void main(String[] args) {
         
            
-         //Starting Database
-        CreateInsertDatabase createDB = new CreateInsertDatabase();
-        createDB.create_schema();
+        /**
+         * CompletableFuture is used to create the DataBase and insert the films
+         * into the DataBase, this is done in the background to give 
+         * the User time to Register or Login to the System.
+         **/ 
+        CompletableFuture<Void> csvTask = CompletableFuture.runAsync(()->{
+            //Starting Database
+            CreateInsertDatabase createDB = new CreateInsertDatabase();
+            createDB.create_schema();
+            CSVReader csvReader = new CSVReader();
+            csvReader.readData();
+    
+        });
         
-        Login start = new Login();
+        InitialScreen start = new InitialScreen();
         
         start.initialScreen();
+        
+        csvTask.join();
         
         //This is to test 
 //        try {
