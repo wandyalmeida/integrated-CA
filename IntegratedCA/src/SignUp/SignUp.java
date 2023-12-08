@@ -20,16 +20,16 @@ public class SignUp implements SignUpInterface{
         //The following process will signUp an user
         System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
         System.out.println("email:");
-        email = userInput.nextLine();
+        email = userInput.next();
         System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
         System.out.println("password:");
-        password = userInput.nextLine();
+        password = userInput.next();
         System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
         System.out.println("name:");
         name = userInput.next();
         System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
         System.out.println("surname:");
-        surname = userInput.nextLine();
+        surname = userInput.next();
         System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
         
         User signUpUser = new User();

@@ -15,22 +15,21 @@ import sql.ConnectionRTE;
  * @author Charles Rocha 2021376
  */
 public class Login implements LoginInterface {
-    
-    Scanner userInput = new Scanner (System.in);
-    SignUp menuSignUp = new SignUp();
+
+    Scanner userInput = new Scanner(System.in);
+//    SignUp menuSignUp = new SignUp();
     InitialScreen firstScreen = new InitialScreen();
     Connection connect;
 
     @Override
     public void login() {
-        System.out.println("");
-        try{
+        try {
             connect = new ConnectionRTE().connectDB();
             String email, password;
             //int userId;
             ResultSet rs;
 
-            do{
+            do {
                 System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                 System.out.println("Email: ");
                 email = userInput.next();
@@ -44,28 +43,29 @@ public class Login implements LoginInterface {
 
                 Authentication userAutentication = new Authentication();
                 rs = userAutentication.autenticationUesr(registeredUser);
-                
+
                 if (rs.next()) {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Sign In Successful");
                     firstScreen.initialScreen();
-               }
-                else{
+//                    break;
+                } else {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Username or password is invalid.");
                     firstScreen.initialScreen();
-                }                
+//                    break;
+                }
 
-               }while(!rs.next());
-                
-           } catch (SQLException e){
-                System.out.println("Error in login " + e);
-            }
+            } while (!rs.next());
+
+        } catch (SQLException e) {
+            System.out.println("Error in login " + e);
         }
+    }
 
     @Override
     public void user(int userId) {
-        
+
     }
 
 }
