@@ -29,7 +29,7 @@ public class CheckMovies implements CheckMoviesInterface {
   public boolean CheckMovies(Movies movieName){
       connect = new ConnectionRTE().connectDB();
       
-        String SQL_COMMAND = "SELECT COUNT(*) as count FROM movies WHERE name = ?";
+        String SQL_COMMAND = "SELECT COUNT(*) as count FROM movies WHERE title = ?";
         try {
             pstm = connect.prepareStatement(SQL_COMMAND);
             pstm.setString(1, movieName.getTitle());
