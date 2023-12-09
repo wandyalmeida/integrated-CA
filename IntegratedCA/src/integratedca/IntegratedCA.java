@@ -27,32 +27,21 @@ public class IntegratedCA  {
          * into the DataBase, this is done in the background to give 
          * the User time to Register or Login to the System.
          **/ 
-        CompletableFuture<Void> csvTask = CompletableFuture.runAsync(()->{
-            //Starting Database
-            CreateInsertDatabase createDB = new CreateInsertDatabase();
-            createDB.create_schema();
-            CSVReader csvReader = new CSVReader();
-            csvReader.readData();
+//        CompletableFuture<Void> csvTask = CompletableFuture.runAsync(()->{
+        //Starting Database
+        CreateInsertDatabase createDB = new CreateInsertDatabase();
+        createDB.create_schema();
+        CSVReader csvReader = new CSVReader();
+        csvReader.readData();
     
-        });
+//        });
         
         InitialScreen start = new InitialScreen();
         
         start.initialScreen();
         
-        csvTask.join();
+//        csvTask.join();
         
-        //This is to test 
-//        try {
-//             CSVReader csvReader = new CSVReader();
-//             ArrayList<Movies> movies = csvReader.readData();
-//
-//             for (Movies movie : movies) {
-//                 System.out.println(movie);
-//             }
-//         } catch (Exception e) {
-//             e.printStackTrace();
-//         }
           
     }
     
