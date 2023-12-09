@@ -13,8 +13,8 @@ import sql.CreateInsertDatabase;
  *
  * @author Charles Rocha 2021376
  * @author Wandwilson Almeida 2021230
- * @author Carolina Gomes Landim
- * @author Lucas Barbosa
+ * @author Carolina Gomes Landim 2021226
+ * @author Lucas Barbosa 
  * Only one method here
  */
 public class IntegratedCA  {
