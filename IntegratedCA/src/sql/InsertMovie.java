@@ -8,6 +8,7 @@ import ReadFile.Movies;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import sql.ConnectionRTE;
 
 /**
@@ -23,7 +24,7 @@ public class InsertMovie implements InsertMovieInterface {
     */
 
     @Override
-    public void InsertMovie(Movies objgetmovie){
+    public void InsertMovie(ArrayList<Movies> objgetmovie){
        
        String SQL_COMMAND = "insert into movies (title , price ) values (?, ?)";// insert the new name movie and price on the DataBase.
 
@@ -34,17 +35,18 @@ public class InsertMovie implements InsertMovieInterface {
             Statement for collecting data from document that will give the 
             required information : movie title and price.
             */
+            connect.createStatement().execute("USE rteplayer;");
             pstm = connect.prepareStatement(SQL_COMMAND);
-            pstm.setString(1, objgetmovie.getTitle());// set and get the movie.
-            pstm.setDouble(2, objgetmovie.getPrice());// set and get the price.
+            for (Movies movie : objgetmovie) {
+                pstm.setString(1, movie.getTitle());// set and get the movie.
+                pstm.setDouble(2, movie.getPrice());// set and get the price.
+                pstm.addBatch();
+            }
+            pstm.executeBatch(); // Execute once a list of movies           
             
-            pstm.execute("USE rteplayer;");
-            pstm.execute();
-            pstm.close();
         } catch (SQLException e) {
             System.out.println("Get Movie: " + e);
         }
     }
-
     
 }

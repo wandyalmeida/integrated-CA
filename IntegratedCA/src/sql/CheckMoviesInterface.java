@@ -5,6 +5,7 @@
 package sql;
 
 import ReadFile.Movies;
+import java.util.ArrayList;
 
 /**
  *
@@ -12,6 +13,6 @@ import ReadFile.Movies;
  */
 public interface CheckMoviesInterface {
     
-    public boolean CheckMovies(Movies movieName);
+    public boolean CheckMovies(ArrayList<Movies> movieName);
     
 }

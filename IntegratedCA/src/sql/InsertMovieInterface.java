@@ -5,6 +5,7 @@
 package sql;
 
 import ReadFile.Movies;
+import java.util.ArrayList;
 
 
 /**
@@ -13,5 +14,5 @@ import ReadFile.Movies;
  */
 public interface InsertMovieInterface {
     
-    public void InsertMovie(Movies objgetmovie);
+    public void InsertMovie(ArrayList<Movies> objgetmovie);
 }
