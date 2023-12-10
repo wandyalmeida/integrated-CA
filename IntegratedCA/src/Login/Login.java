@@ -17,9 +17,10 @@ import sql.ConnectionRTE;
 public class Login implements LoginInterface {
 
     Scanner userInput = new Scanner(System.in);
-//    SignUp menuSignUp = new SignUp();
     InitialScreen firstScreen = new InitialScreen();
     Connection connect;
+    
+    //    SignUp menuSignUp = new SignUp();
 
     @Override
     public void login() {
