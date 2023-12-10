@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author carol
+ * @author Carolina Landim 2021226
  */
 public class SeeMovies {
     
@@ -40,28 +40,31 @@ public class SeeMovies {
         PreparedStatement pstm;
         ResultSet rs;
         
-
+        
         try {
             //This method will show the movies 
             SQL_COMMAND = "select * from movies ";//Get movies table
             connect = new ConnectionRTE().connectDB();
             pstm = connect.prepareStatement(SQL_COMMAND);
-
+            
             pstm.execute("USE rteplayer;");
             rs = pstm.executeQuery();
+            
 
-            System.out.println("movie_id  " + "\t| title  " + "\t| price  ");
-            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+            System.out.println( "|MOVIE ID  " + "   |TITLE  " + "\t                                                              |PRICE  ");
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             while(rs.next()){ // Show table with the List of Movies and price
 
-                   movie_id = rs.getInt("movie_id");
-                   title = rs.getString("title");
-                   price = rs.getDouble("price");
-                   System.out.println("|"+ movie_id + "\t|" + title + "\t|" + price);
-
-            }
-            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-
+                movie_id = rs.getInt("movie_id");
+                title = rs.getString("title");
+                price = rs.getDouble("price");
+                                              
+                  // Display each movie row 
+                System.out.printf("| %-10d | %-70s | €%-15.2f%n", movie_id, title, price);
+            } 
+            
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+ 
 
         } catch (SQLException e) {
             System.out.println("See Movies: " + e);// show this message if this method get a error.
