@@ -9,6 +9,8 @@ package sql;
  *
  * @author Lucas dos Santos Barbosa
  */
+
+//enum creation for the menu
 public class MovieMenu {
  
     public enum MenuOption {
@@ -16,11 +18,13 @@ public class MovieMenu {
     EXIT("log out");
 
     private final String option;
-
+    
+    //the constructor 
     MenuOption(String option) {
         this.option = option;
     }
-
+    
+    //This method returns the string represetation of the of the option
     public String getOption() {
         return option;
     }
