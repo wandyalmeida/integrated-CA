@@ -10,13 +10,15 @@ import java.util.logging.Logger;
  *
  * @author Lucas dos Santos Barbosa
  */
-public class ConnectionDatabase implements ConnectionDatabaseInterface {
+
+//connection between java and mySQL
+public class CnnectionDatabase implements ConnectionDatabaseInterface {
     
     @Override
     public Connection createConnection(){
         
         String dbName = "rteplayer";
-        String DB_URL = "jdbc:mysql://localhost:3306" + dbName;
+        String DB_URL = "jdbc:mysql://localhost:3306/" + dbName;
         String USER = "root";
         String PASS = "root";
        
@@ -24,18 +26,19 @@ public class ConnectionDatabase implements ConnectionDatabaseInterface {
             
             Class.forName("com.mysql.cj.jdbc.Driver");
             try(Connection con = DriverManager.getConnection(DB_URL, USER, PASS)) {
+                
                 Statement stmt = con.createStatement();
                 
-                ResultSet resultSet = stmt.executeQuery("SELECT * FROM rteplayer.movies");
+                ResultSet resultSet = stmt.executeQuery("SELECT * FROM movies");
                 
                 while (resultSet.next()) {
-                    System.out.println(resultSet.getString(1));
+                    System.out.println(resultSet.getString(2));
                 }}
            
         } catch (SQLException e) {
             System.out.println("Connection error");
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CnnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
         
