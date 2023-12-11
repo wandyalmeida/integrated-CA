@@ -14,7 +14,7 @@ import sql.MovieMenu.MenuOption;
 public class ShowMenu {
     
     //This method gets the input of the user and display a menu with two options
-    public void showMenu() {
+    public void showMenu(int userID) {
         Scanner scanner = new Scanner(System.in);
         MenuOption[] options = MenuOption.values();
         
