@@ -26,14 +26,14 @@ public class ShowMenu {
             for (int i = 0; i < options.length; i++) {
                 System.out.println((i + 1) + ". " + options[i].getOption());
             }
-
-            int choice = scanner.nextInt();
-            if (choice == options.length + 1) {
-                break;
-            }
             
+            //reading the user input
+            String userInput = scanner.nextLine();
+            
+            if (userInput.matches("[1-2]")) {
+                int choice = Integer.parseInt(userInput);
             //Switch with the values of options
-            switch (options[choice - 1]) {
+            switch (options[choice]) {
                 case SEE_MOVIES:
                     SeeMovies seeMovies = new SeeMovies();
                     seeMovies.seeMovies();
@@ -41,11 +41,11 @@ public class ShowMenu {
                 case EXIT:
                     System.exit(0);
                     break;
-                default:
-                    System.out.println("Invalid option.");
-                    break;
+            }
+            
+            }else {
+                System.out.println("Sorry, this option is not valid\n");
             }
         }
     }
-    
 }

@@ -16,6 +16,7 @@ public class MovieMenu {
     public enum MenuOption {
     SEE_MOVIES("Check our movies"),
     EXIT("log out");
+    
 
     private final String option;
     
