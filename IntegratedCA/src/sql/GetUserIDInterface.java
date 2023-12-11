@@ -6,8 +6,8 @@ package sql;
 
 /**
  *
- * @author carol
+ * @author Carolina Landim 2021226
  */
 public interface GetUserIDInterface {
-    
+    public int getId(String email, String password);
 }

@@ -6,7 +6,7 @@ package sql;
 
 /**
  *
- * @author carol
+ * @author Carolina Landim 2021226
  */
 public interface InsertMovieChartInterface {
     public void InsertMovieChart(int user_id, int movie_id);
