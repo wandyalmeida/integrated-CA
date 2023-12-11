@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.Scanner;
 import sql.Authentication;
 import sql.ConnectionRTE;
+import sql.SeeMovies;
+import sql.ShowMenu;
 
 /**
  *
@@ -48,8 +50,14 @@ public class Login implements LoginInterface {
                 if (rs.next()) {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Sign In Successful");
-                    firstScreen.initialScreen();
-//                    break;
+                    
+                    SeeMovies movies = new SeeMovies();
+                    
+                    movies.seeMovies();
+                    
+                    ShowMenu menu = new  ShowMenu();
+                    menu.showMenu();                    
+                    
                 } else {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Username or password is invalid.");
