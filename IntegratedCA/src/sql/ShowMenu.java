@@ -9,16 +9,20 @@ import sql.MovieMenu.MenuOption;
 
 /**
  *
- * @author revol
+ * @author Lucas dos Santos Barbosa
  */
 public class ShowMenu {
     
+    //This method gets the input of the user and display a menu with two options
     public void showMenu() {
         Scanner scanner = new Scanner(System.in);
         MenuOption[] options = MenuOption.values();
-
+        
+        //Presenting the menu to the user
         while (true) {
             System.out.println("Please select an option:");
+            
+            //Loop to print the options
             for (int i = 0; i < options.length; i++) {
                 System.out.println((i + 1) + ". " + options[i].getOption());
             }
@@ -27,7 +31,8 @@ public class ShowMenu {
             if (choice == options.length + 1) {
                 break;
             }
-
+            
+            //Switch with the values of options
             switch (options[choice - 1]) {
                 case SEE_MOVIES:
                     SeeMovies seeMovies = new SeeMovies();
