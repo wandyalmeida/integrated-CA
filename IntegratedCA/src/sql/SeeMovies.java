@@ -50,7 +50,7 @@ public class SeeMovies implements SeeMoviesInterface {
             pstm.execute("USE rteplayer;");
             rs = pstm.executeQuery();
             
-
+            System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             System.out.println( "|MOVIE ID  " + "  |TITLE  " + "\t                                                              |PRICE  ");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             while(rs.next()){ // Show table with the List of Movies and price

@@ -4,6 +4,7 @@
  */
 package RentMovie;
 import java.util.Scanner;
+import sql.InsertMovieChart;
 import sql.SeeMovies;
 import sql.ShowMenu;
 
@@ -32,7 +33,9 @@ public class RentMovies {
         rentConfirm = userInput.nextInt();
         switch (rentConfirm){
             case 1:
-                System.out.println("Movie rented");                 
+                System.out.println("Movie rented"); 
+                InsertMovieChart moviechart = new InsertMovieChart();
+                moviechart.InsertMovieChart(1, movieId);
                 menu.showMenu(); 
                 break;
             case 2:
