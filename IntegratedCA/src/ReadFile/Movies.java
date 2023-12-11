@@ -11,6 +11,7 @@ package ReadFile;
 public class Movies {
     private String title;
     private double price;
+    private int movie_id;
 
     public String getTitle() {
         return title;
@@ -27,12 +28,12 @@ public class Movies {
     public void setPrice(double price) {
         this.price = price;
     }
-    
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "title='" + title + '\'' +
-                ", price=" + price +
-                '}';
+
+    public int getMovie_id() {
+        return movie_id;
+    }
+
+    public void setMovie_id(int movie_id) {
+        this.movie_id = movie_id;
     }
 }

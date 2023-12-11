@@ -12,6 +12,5 @@ import java.util.ArrayList;
  */
 public interface CSVReaderInterface {
     public ArrayList<Movies> readData();
-    public int getNumColumns();
-    public String[] getHeader();
+
 }

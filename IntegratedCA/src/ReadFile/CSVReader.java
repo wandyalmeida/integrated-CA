@@ -78,13 +78,4 @@ public class CSVReader extends FileIO implements CSVReaderInterface {
      return movies;
  }
     
-    @Override
-    public int getNumColumns() {
-        return numColumns;
-    }
-
-    @Override
-    public String[] getHeader() {
-        return header;
-    }
 }
