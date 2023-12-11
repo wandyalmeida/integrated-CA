@@ -13,12 +13,12 @@ import java.sql.SQLException;
  *
  * @author Carolina Landim 2021226
  */
-public class SeeMovies {
+public class SeeMovies implements SeeMoviesInterface {
     
     /*
     Show the movies table
     */
-    //@Override
+    @Override
     public void seeMovies(){
        
         /*
@@ -51,7 +51,7 @@ public class SeeMovies {
             rs = pstm.executeQuery();
             
 
-            System.out.println( "|MOVIE ID  " + "   |TITLE  " + "\t                                                              |PRICE  ");
+            System.out.println( "|MOVIE ID  " + "  |TITLE  " + "\t                                                              |PRICE  ");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             while(rs.next()){ // Show table with the List of Movies and price
 
