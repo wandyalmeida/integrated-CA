@@ -7,7 +7,7 @@ import ReadFile.Movies;
 import java.util.Scanner;
 import sql.InsertMovieChart;
 import sql.SelectMovie;
-import sql.ShowMenu;
+import Enum.ShowMenu;
 
 
 /**
