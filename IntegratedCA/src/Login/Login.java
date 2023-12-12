@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Scanner;
 import sql.Authentication;
 import sql.ConnectionRTE;
+import sql.GetUserID;
 import sql.SeeMovies;
 import sql.ShowMenu;
 
@@ -20,6 +21,8 @@ public class Login implements LoginInterface {
 
     Scanner userInput = new Scanner(System.in);
     InitialScreen firstScreen = new InitialScreen();
+    GetUserID user = new GetUserID();
+    String email, password;
     Connection connect;
     
     //    SignUp menuSignUp = new SignUp();
@@ -28,8 +31,8 @@ public class Login implements LoginInterface {
     public void login() {
         try {
             connect = new ConnectionRTE().connectDB();
-            String email, password;
-            //int userId;
+            
+            int userId = user.getId(email, password);
             ResultSet rs;
 
             do {
@@ -56,13 +59,12 @@ public class Login implements LoginInterface {
                     movies.seeMovies();
                     
                     ShowMenu menu = new  ShowMenu();
-                    menu.showMenu();                    
+                    menu.showMenu(userId);
                     
                 } else {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
-                    System.out.println("Username or password is invalid.");
+                    System.out.println("Email or password is invalid.");
                     firstScreen.initialScreen();
-//                    break;
                 }
 
             } while (!rs.next());
