@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package sql;
+package Enum;
 
 import java.util.Scanner;
-import sql.MovieMenu.MenuOption;
+import Enum.MovieMenu.MenuOption;
+import sql.SeeMovies;
 
 /**
  *
