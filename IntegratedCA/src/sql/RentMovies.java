@@ -13,27 +13,28 @@ import java.sql.SQLException;
 
 /**
  *
- * @author carol
+ * @author Carolina Landim 2021226
  */
-public class RentMovies {
+public class RentMovies implements RentMoviesInterface{
     
     Connection connect;
     PreparedStatement pstm;
     ResultSet rs;
     
+    @Override
     public void rentMovies(User objuser){
         
         connect = new ConnectionRTE().connectDB();
         
         try{
-            String sql = "select DISTINCT a.movie_id, m.title, m.price from movie_chart a " +
-                    "JOIN movies m ON a.movie_id = m.movie_id " +
-                    "where a.user_id = ? and TIMESTAMPDIFF(MINUTE, a.rentDate, NOW()) < 1 " +
-                    "ORDER BY a.movie_id ASC ";
+            String sql = "SELECT DISTINCT a.movie_id, m.title, m.price FROM movie_chart a " +
+                         "JOIN movies m ON a.movie_id = m.movie_id " +
+                         "WHERE a.user_id = ? AND TIMESTAMPDIFF(MINUTE, a.rentDate, NOW()) < 1 " +
+                         "ORDER BY a.movie_id ASC ";
             
             pstm = connect.prepareStatement(sql);
             pstm.setInt(1, objuser.getUserId());
-            pstm.execute("use rteplayer;");
+            pstm.execute("USE rteplayer;");
             rs = pstm.executeQuery();
             
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -61,12 +62,7 @@ public class RentMovies {
             
         }catch(SQLException e){
             
-            try{
-                connect.rollback();
-            }catch (SQLException rollbackException){
-                System.out.println("Rollback error " + rollbackException);
-            }
-            System.out.println("Rent Movies error" + e);
+           System.out.println("Rent Movies error" + e);
         }
         
     }

@@ -28,11 +28,11 @@ public class SelectMovie implements SelectMovieInterface{
         connect = new ConnectionRTE().connectDB();
         
         try{
-            String sql = "select * from movies where movie_id = ?";
+            String sql = "SELECT * FROM movies WHERE movie_id = ?";
             
             pstm = connect.prepareStatement(sql);
             pstm.setInt(1, objmovies.getMovie_id());
-            pstm.execute("use rteplayer;");
+            pstm.execute("USE rteplayer;");
             
             // Execute the sql query and get the result set
             rs = pstm.executeQuery();

@@ -21,7 +21,7 @@ public class GetUserID implements GetUserIDInterface{
     
      @Override
     public int getId(String email, String password){
-        String SQL_COMMAND = "select * from users where email = ? and password = ?";
+        String SQL_COMMAND = "SELECT * FROM users WHERE email = ? AND password = ?";
 
         int id_user = 0;
         

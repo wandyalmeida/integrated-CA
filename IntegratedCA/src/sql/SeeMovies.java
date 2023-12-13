@@ -43,7 +43,7 @@ public class SeeMovies implements SeeMoviesInterface {
         
         try {
             //This method will show the all movies stored in the database
-            SQL_COMMAND = "select * from movies ";//Get movies table
+            SQL_COMMAND = "SELECT * FROM movies ";//Get movies table
             connect = new ConnectionRTE().connectDB();
             pstm = connect.prepareStatement(SQL_COMMAND);
             

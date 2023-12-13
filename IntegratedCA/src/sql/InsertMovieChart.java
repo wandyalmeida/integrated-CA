@@ -20,7 +20,7 @@ public class InsertMovieChart implements InsertMovieChartInterface {
     
     @Override
     public void InsertMovieChart(int user_id, int movie_id){
-     String SQL_COMMAND = "insert into movie_chart (user_id , movie_id, rentDate ) values (?, ?, CURRENT_TIMESTAMP)";// insert the user id and movie id on table Movie Chart.
+     String SQL_COMMAND = "INSERT INTO movie_chart (user_id , movie_id, rentDate ) VALUES (?, ?, CURRENT_TIMESTAMP)";// insert the user id and movie id on table Movie Chart.
      
       connect = new ConnectionRTE().connectDB();
 

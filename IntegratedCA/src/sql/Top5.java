@@ -30,7 +30,7 @@ public class Top5 implements Top5Interface {
             connect = new ConnectionRTE().connectDB();
             pstm = connect.prepareStatement(SQL_COMMAND);
             // Check the top 5 movies in the database
-            String query = "SELECT movies.title, movies.price, COUNT(movie_chart.movie_id) as selections " +
+            String query = "SELECT movies.title, movies.price, COUNT(movie_chart.movie_id) AS selections " +
                            "FROM movie_chart " +
                            "JOIN movies ON movie_chart.movie_id = movies.movie_id " +
                            "GROUP BY movie_chart.movie_id " +

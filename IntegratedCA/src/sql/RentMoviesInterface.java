@@ -4,10 +4,12 @@
  */
 package sql;
 
+import UserGetSet.User;
+
 /**
  *
  * @author carol
  */
 public interface RentMoviesInterface {
-    
+    public void rentMovies(User objuser);
 }

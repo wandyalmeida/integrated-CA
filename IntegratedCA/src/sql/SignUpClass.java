@@ -25,7 +25,7 @@ public class SignUpClass implements SignUpClassInterface{
     @Override
     public void Sign_Up(User objsign_up){
        
-       String SQL_COMMAND = "insert into  users ( email, password, name, surname) values (?, ?, ?, ?)";// insert the new user on the DataBase.
+       String SQL_COMMAND = "INSERT INTO  users ( email, password, name, surname) VALUES (?, ?, ?, ?)";// insert the new user on the DataBase.
 
         connect = new ConnectionRTE().connectDB();
 

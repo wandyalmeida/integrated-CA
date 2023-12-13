@@ -26,7 +26,7 @@ public class InsertMovie implements InsertMovieInterface {
     @Override
     public void InsertMovie(ArrayList<Movies> objgetmovie){
        
-       String SQL_COMMAND = "insert into movies (title , price ) values (?, ?)";// insert the new name movie and price on the DataBase.
+       String SQL_COMMAND = "INSERT INTO movies (title , price ) VALUES (?, ?)";// insert the new name movie and price on the DataBase.
 
         connect = new ConnectionRTE().connectDB();
 
