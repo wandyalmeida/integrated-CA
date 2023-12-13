@@ -21,18 +21,16 @@ public class Login implements LoginInterface {
 
     Scanner userInput = new Scanner(System.in);
     InitialScreen firstScreen = new InitialScreen();
-    GetUserID user = new GetUserID();
-    String email, password;
-    Connection connect;
-    
-    //    SignUp menuSignUp = new SignUp();
 
+    Connection connect;
+    GetUserID user;
+
+    //    SignUp menuSignUp = new SignUp();
     @Override
     public void login() {
         try {
             connect = new ConnectionRTE().connectDB();
-            
-            int userId = user.getId(email, password);
+            String email, password;
             ResultSet rs;
 
             do {
@@ -49,18 +47,19 @@ public class Login implements LoginInterface {
 
                 Authentication userAutentication = new Authentication();
                 rs = userAutentication.autenticationUesr(registeredUser);
+                int userId = user.getId(email, password);
 
                 if (rs.next()) {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Sign In Successful");
-                    
+
                     SeeMovies movies = new SeeMovies();
-                    
+
                     movies.seeMovies();
-                    
-                    ShowMenu menu = new  ShowMenu();
+
+                    ShowMenu menu = new ShowMenu();
                     menu.showMenu(userId);
-                    
+
                 } else {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Email or password is invalid.");

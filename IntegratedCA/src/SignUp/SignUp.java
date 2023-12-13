@@ -6,7 +6,7 @@ import sql.SignUpClass;
 /**
  *
  * @author Charles Rocha 2021376
- * Class responsible to register users in the database
+ * Class responsible for register users in the database
  */
 public class SignUp implements SignUpInterface{
     
