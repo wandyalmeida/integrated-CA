@@ -23,7 +23,7 @@ public class SelectMovie implements SelectMovieInterface{
     double price;
     
     @Override
-    public void SelectMovie(Movies objmovies){
+    public void selectMovie(Movies objmovies){
         
         connect = new ConnectionRTE().connectDB();
         

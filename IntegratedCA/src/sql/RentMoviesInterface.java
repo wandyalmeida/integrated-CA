@@ -4,12 +4,10 @@
  */
 package sql;
 
-import ReadFile.Movies;
-
 /**
  *
  * @author carol
  */
-public interface SelectMovieInterface {
-    public void selectMovie(Movies objmovies);
+public interface RentMoviesInterface {
+    
 }
