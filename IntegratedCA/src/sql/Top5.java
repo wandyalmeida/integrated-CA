@@ -34,7 +34,7 @@ public class Top5 implements Top5Interface {
                            "FROM movie_chart " +
                            "JOIN movies ON movie_chart.movie_id = movies.movie_id " +
                            "GROUP BY movie_chart.movie_id " +
-                           "ORDER BY selections ASC " +
+                           "ORDER BY selections DESC " +
                            "LIMIT 5";
 
             PreparedStatement preparedStatement = connect.prepareStatement(query);
