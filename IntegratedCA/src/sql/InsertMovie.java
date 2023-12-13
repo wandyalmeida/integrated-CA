@@ -45,7 +45,7 @@ public class InsertMovie implements InsertMovieInterface {
             pstm.executeBatch(); // Execute once a list of movies           
             
         } catch (SQLException e) {
-            System.out.println("Get Movie: " + e);
+            System.out.println("Insert Movie: " + e);
         }
     }
     
