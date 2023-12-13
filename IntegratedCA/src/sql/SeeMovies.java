@@ -42,7 +42,7 @@ public class SeeMovies implements SeeMoviesInterface {
         
         
         try {
-            //This method will show the movies 
+            //This method will show the all movies stored in the database
             SQL_COMMAND = "select * from movies ";//Get movies table
             connect = new ConnectionRTE().connectDB();
             pstm = connect.prepareStatement(SQL_COMMAND);
@@ -59,7 +59,7 @@ public class SeeMovies implements SeeMoviesInterface {
                 title = rs.getString("title");
                 price = rs.getDouble("price");
                                               
-                  // Display each movie row 
+                  // Display each movie row organised
                 System.out.printf("| %-10d | %-70s | €%-15.2f%n", movie_id, title, price);
             } 
             

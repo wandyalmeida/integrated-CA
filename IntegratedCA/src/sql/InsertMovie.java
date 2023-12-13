@@ -20,7 +20,7 @@ public class InsertMovie implements InsertMovieInterface {
     Connection connect;
     PreparedStatement pstm;
     /* 
-        Insert the movie titles and prices on the DataBase.
+    *   Insert all the movie titles and prices on the DataBase.
     */
 
     @Override
