@@ -35,10 +35,12 @@ public class InitialScreen implements InitialScreenInterface {
                 case "1":
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     loginCheck.login();
+                    break;
                 case "2":
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     signUpScreen.SignUpUser();
                     initialScreen();
+                    break;
                 default:
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Sorry, wrong option... Try again.");
