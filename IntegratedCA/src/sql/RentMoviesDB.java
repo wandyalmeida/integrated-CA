@@ -25,7 +25,7 @@ public class RentMoviesDB extends Attributes implements RentMoviesDBInterface{
         try{
             SQL_COMMAND = "SELECT DISTINCT a.movie_id, m.title, m.price FROM movie_chart a " +
                          "JOIN movies m ON a.movie_id = m.movie_id " +
-                         "WHERE a.user_id = ? AND TIMESTAMPDIFF(MINUTE, a.rentDate, NOW()) < 1 " +
+                         "WHERE a.user_id = ? AND TIMESTAMPDIFF(MINUTE, a.rentDate, NOW()) < 1440 " +
                          "ORDER BY a.movie_id ASC ";
             
             pstm = connect.prepareStatement(SQL_COMMAND);
