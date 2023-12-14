@@ -17,7 +17,7 @@ public class InitialScreen implements InitialScreenInterface {
     @Override
     public void initialScreen() {
         try {
-            
+
             loginCheck = new Login();
             signUpScreen = new SignUp();
 
@@ -47,7 +47,7 @@ public class InitialScreen implements InitialScreenInterface {
             }
 
         } catch (Exception e) {
-            System.out.println("Error initial Screen: "+ e);
+            System.out.println("Error initial Screen: " + e);
         }
 
     }
