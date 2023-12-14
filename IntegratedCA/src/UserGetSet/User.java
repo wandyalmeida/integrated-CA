@@ -2,15 +2,14 @@ package UserGetSet;
 
 /**
  *
- * @author Charles Rocha 2021376
- * This class will allow users to create and log into accounts with an email and a password.
- *  Later it will connect to DataBase
+ * @author Charles Rocha 2021376 This class will allow users to create and log
+ * into accounts with an email and a password. Later it will connect to DataBase
  * userId will be directly related to the moviesId
  */
 public class User {
-        
-        private String email, password, name, surname;
-        private int userId;
+
+    private String email, password, name, surname;
+    private int userId;
 
     public String getName() {
         return name;
@@ -36,20 +35,20 @@ public class User {
         this.userId = userId;
     }
 
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
-
-        public String getPassword() {
-            return password;
-        }
-
-        public void setPassword(String password) {
-            this.password = password;
-        }
-        
+    public String getEmail() {
+        return email;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+}

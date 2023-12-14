@@ -1,14 +1,11 @@
 package Login;
 
 import InitialScreen.InitialScreen;
-import SignUp.SignUp;
 import UserGetSet.User;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 import sql.Authentication;
-import sql.ConnectionRTE;
 import sql.GetUserID;
 import sql.SeeMovies;
 import Enum.ShowMenu;
@@ -19,17 +16,18 @@ import Enum.ShowMenu;
  */
 public class Login implements LoginInterface {
 
+    Authentication userAutentication = new Authentication();
     Scanner userInput = new Scanner(System.in);
     InitialScreen firstScreen = new InitialScreen();
+    SeeMovies movies = new SeeMovies();
+    ShowMenu menu = new ShowMenu();
+    GetUserID user = new GetUserID();
+    User registeredUser = new User();
 
-    Connection connect;
-    GetUserID user;
-
-    //    SignUp menuSignUp = new SignUp();
     @Override
     public void login() {
         try {
-            connect = new ConnectionRTE().connectDB();
+
             String email, password;
             ResultSet rs;
 
@@ -41,11 +39,9 @@ public class Login implements LoginInterface {
                 System.out.println("Password: ");
                 password = userInput.next();
 
-                User registeredUser = new User();
                 registeredUser.setEmail(email);
                 registeredUser.setPassword(password);
 
-                Authentication userAutentication = new Authentication();
                 rs = userAutentication.autenticationUesr(registeredUser);
                 int userId = user.getId(email, password);
 
@@ -53,11 +49,8 @@ public class Login implements LoginInterface {
                     System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
                     System.out.println("Sign In Successful");
 
-                    SeeMovies movies = new SeeMovies();
-
                     movies.seeMovies();
 
-                    ShowMenu menu = new ShowMenu();
                     menu.showMenu(userId);
 
                 } else {
@@ -72,10 +65,4 @@ public class Login implements LoginInterface {
             System.out.println("Error in login " + e);
         }
     }
-
-    @Override
-    public void user(int userId) {
-
-    }
-
 }
