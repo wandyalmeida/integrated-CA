@@ -10,6 +10,6 @@ import UserGetSet.User;
  *
  * @author carol
  */
-public interface RentMoviesInterface {
-    public void rentMovies(User objuser);
+public interface RentMoviesDBInterface {
+    public void rentMoviesDB(User objuser);
 }
