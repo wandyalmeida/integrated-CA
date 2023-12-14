@@ -23,9 +23,6 @@ public class SeeMovies extends Attributes implements SeeMoviesInterface {
        
         /*
         Variables:
-            int movie_id; 
-            String title;
-            double price;
         */         
         int movie_id; 
         String title;

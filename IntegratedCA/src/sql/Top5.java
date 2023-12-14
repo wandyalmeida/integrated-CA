@@ -18,10 +18,10 @@ public class Top5 extends Attributes implements Top5Interface {
     public void Top5(){
       try {
             // Check the top 5 movies in the database
-            SQL_COMMAND = "SELECT movies.title, movies.price, COUNT(movie_chart.movie_id) AS selections " +
-                           "FROM movie_chart " +
-                           "JOIN movies ON movie_chart.movie_id = movies.movie_id " +
-                           "GROUP BY movie_chart.movie_id " +
+            SQL_COMMAND = "SELECT a.movie_id, COUNT(*) AS selections, m.title, m.price " +
+                           "FROM movie_chart a " +
+                           "JOIN movies m ON a.movie_id = m.movie_id " +
+                           "GROUP BY a.movie_id " +
                            "ORDER BY selections DESC " +
                            "LIMIT 5";
             
