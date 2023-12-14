@@ -6,39 +6,25 @@ package sql;
 
 import java.sql.SQLException;
 import Login.Login;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.Statement;
 
 /**
  *
  * @author Carolina Landim 2021226
  */
-public class CreateInsertDatabase implements CreateInsertDatabaseInterface {
-    
-    
-    /*
-    Methods command
-    Connection - connect to database
-    Prepared Statement - executing queries with parameters
-    */
-    Connection connect;
-    PreparedStatement pstm;
-    
-    
-    
+public class CreateInsertDatabase extends Attributes implements CreateInsertDatabaseInterface {
+       
     /*
       Start creating schema on database
     */
     @Override
     public boolean create_schema(){
         try {
-           connect = new ConnectionRTE().connectDB();
            Statement stmt = connect.createStatement();
            
             //check if the data base have this schema. if no they will create the schema.
             stmt.execute("CREATE SCHEMA IF NOT EXISTS rteplayer;");
-            stmt.execute("USE rteplayer;");
+            stmt.execute(database);
             
             /*
             Create tables on the Database
