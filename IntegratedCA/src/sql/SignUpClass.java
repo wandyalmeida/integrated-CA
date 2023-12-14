@@ -15,6 +15,12 @@ import java.sql.SQLException;
  */
 public class SignUpClass implements SignUpClassInterface{
     
+    /*
+    Methods command
+    Connection 
+    Prepared Statement 
+    */
+    
     Connection connect;
     PreparedStatement pstm;
     /*
@@ -43,7 +49,7 @@ public class SignUpClass implements SignUpClassInterface{
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {
-            System.out.println("Sign UP User: " + e);
+            System.out.println("Sign UP User: " + e);//Display Error message from Sign up class
         }
     }
 }

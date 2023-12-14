@@ -16,6 +16,12 @@ import java.sql.SQLException;
  */
 public class SelectMovie implements SelectMovieInterface{
     
+    /*
+    Methods command
+    Connection 
+    Prepared Statement 
+    */
+    
     Connection connect;
     PreparedStatement pstm;
     ResultSet rs;

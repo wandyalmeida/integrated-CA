@@ -15,6 +15,12 @@ import java.sql.SQLException;
  */
 public class GetUserID implements GetUserIDInterface{
     
+    /*
+    Methods command
+    Connection to database 
+    Prepared Statement to execute queries
+    */
+    
     Connection connect;
     PreparedStatement pstm;
     ResultSet rs;
@@ -28,7 +34,7 @@ public class GetUserID implements GetUserIDInterface{
         
         try {
              /*
-            
+                Get user ID 
             */
             connect = new ConnectionRTE().connectDB();
             pstm = connect.prepareStatement(SQL_COMMAND);

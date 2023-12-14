@@ -19,6 +19,8 @@ public class CreateInsertDatabase implements CreateInsertDatabaseInterface {
     
     /*
     Methods command
+    Connection - connect to database
+    Prepared Statement - executing queries with parameters
     */
     Connection connect;
     PreparedStatement pstm;

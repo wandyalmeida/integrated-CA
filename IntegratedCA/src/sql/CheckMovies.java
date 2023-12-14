@@ -16,10 +16,17 @@ import java.util.ArrayList;
 /**
  *
  * @author Carolina Landim 2021226
+ * 
+ * This class it is project to confirm the movies in database 
+ * is the same as in the csv file.
  */
 public class CheckMovies implements CheckMoviesInterface {
     
-    //variables
+    /*
+    Methods command
+    Connection 
+    Prepared Statement 
+    */
     
     Connection connect;
     ResultSet rs;
@@ -66,7 +73,7 @@ public class CheckMovies implements CheckMoviesInterface {
                        connect.close();
                    }
                } catch (SQLException e) {
-                    System.out.println("Check close resources error " + e);
+                    System.out.println("Check close resources error " + e);// Check Movies Error
 
                }
            }

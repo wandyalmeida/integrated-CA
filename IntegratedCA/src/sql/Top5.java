@@ -19,7 +19,11 @@ import sql.ConnectionRTE;
  */
 public class Top5 implements Top5Interface {
     
-    // Variables
+    /*
+    Methods command
+    Connection 
+    Prepared Statement 
+    */
     String SQL_COMMAND;
     Connection connect;
     PreparedStatement pstm;
@@ -40,7 +44,7 @@ public class Top5 implements Top5Interface {
             PreparedStatement preparedStatement = connect.prepareStatement(query);
             ResultSet rs = preparedStatement.executeQuery();
  
-            // This will be the resulys of the top 5 of movies
+            // This will be the results of the top 5 of movies
             System.out.println("Top 5 Movies:");
             while (rs.next()) {
                 String title = rs.getString("title");

@@ -14,8 +14,17 @@ import sql.ConnectionRTE;
 /**
  *
  * @author Carolina Landim 2021226
+ * 
+ *  This is class is to Insert information to Database
+ *  The method is to add movies and price into a table called Movies
  */
 public class InsertMovie implements InsertMovieInterface {
+    
+    /*
+    Methods command
+    Connection to database 
+    Prepared Statement to execute queries
+    */
     
     Connection connect;
     PreparedStatement pstm;
@@ -45,7 +54,7 @@ public class InsertMovie implements InsertMovieInterface {
             pstm.executeBatch(); // Execute once a list of movies           
             
         } catch (SQLException e) {
-            System.out.println("Insert Movie: " + e);
+            System.out.println("Insert Movie: " + e);// Error message from InsertMovie class
         }
     }
     

@@ -14,8 +14,17 @@ import java.sql.SQLException;
 /**
  *
  * @author Carolina Landim 2021226
+ * 
+ * This class will execute the movies that users rent and give information about
+ * date and time of the rent.
  */
 public class RentMovies implements RentMoviesInterface{
+    
+    /*
+    Methods command
+    Connection 
+    Prepared Statement 
+    */
     
     Connection connect;
     PreparedStatement pstm;
@@ -26,6 +35,7 @@ public class RentMovies implements RentMoviesInterface{
         
         connect = new ConnectionRTE().connectDB();
         
+        // SQL Commands 
         try{
             String sql = "SELECT DISTINCT a.movie_id, m.title, m.price FROM movie_chart a " +
                          "JOIN movies m ON a.movie_id = m.movie_id " +
@@ -37,6 +47,8 @@ public class RentMovies implements RentMoviesInterface{
             pstm.execute("USE rteplayer;");
             rs = pstm.executeQuery();
             
+            
+            // Display the list of Rented movie if it is rented
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
             System.out.println("                                  USER'S RENTED MOVIES                                                  ");
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
@@ -53,6 +65,7 @@ public class RentMovies implements RentMoviesInterface{
                 System.out.printf("| %-10d | %-70s | €%-15.2f%n", movie_id, title, price);
                 rowcount++;
             } 
+            // Display when there is no movies rented
             if(rowcount == 0){
                 System.out.println("                                  NO RENTED MOVIES                                                  ");
 
@@ -62,7 +75,7 @@ public class RentMovies implements RentMoviesInterface{
             
         }catch(SQLException e){
             
-           System.out.println("Rent Movies error" + e);
+           System.out.println("Rent Movies error" + e);// Error message from Rent Movies class
         }
         
     }
