@@ -6,9 +6,7 @@ package sql;
 
 import UserGetSet.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
 
 /**
@@ -18,22 +16,10 @@ import java.sql.SQLException;
  * This class will execute the movies that users rent and give information about
  * date and time of the rent.
  */
-public class RentMovies implements RentMoviesInterface{
-    
-    /*
-    Methods command
-    Connection 
-    Prepared Statement 
-    */
-    
-    Connection connect;
-    PreparedStatement pstm;
-    ResultSet rs;
-    
-    @Override
-    public void rentMovies(User objuser){
+public class RentMoviesDB extends Attributes implements RentMoviesDBInterface{
         
-        connect = new ConnectionRTE().connectDB();
+    @Override
+    public void rentMoviesDB(User objuser){
         
         // SQL Commands 
         try{
@@ -44,7 +30,7 @@ public class RentMovies implements RentMoviesInterface{
             
             pstm = connect.prepareStatement(sql);
             pstm.setInt(1, objuser.getUserId());
-            pstm.execute("USE rteplayer;");
+            pstm.execute(database);
             rs = pstm.executeQuery();
             
             
