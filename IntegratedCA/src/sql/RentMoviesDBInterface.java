@@ -8,7 +8,7 @@ import UserGetSet.User;
 
 /**
  *
- * @author carol
+ * @author Carolina Landim 2021226
  */
 public interface RentMoviesDBInterface {
     public void rentMoviesDB(User objuser);
