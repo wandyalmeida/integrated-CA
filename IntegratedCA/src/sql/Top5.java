@@ -31,7 +31,6 @@ public class Top5 extends Attributes implements Top5Interface {
             rs = pstm.executeQuery();
  
             // This will be the results of the top 5 of movies
-            System.out.println("Top 5 Movies:");
             if (rs.next()) {
                 System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
                 System.out.println("                                  TOP 5 MOVIES                                                  ");
