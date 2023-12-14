@@ -16,15 +16,16 @@ public class SelectMovie extends Attributes implements SelectMovieInterface{
     // Variables
     String title;
     double price;
+    int movie_id;
     
     @Override
-    public void selectMovie(Movies objmovies){
+    public boolean selectMovie(Movies objmovies){
         
         
         try{
-            String sql = "SELECT * FROM movies WHERE movie_id = ?";
+            SQL_COMMAND = "SELECT * FROM movies WHERE movie_id = ?";
             
-            pstm = connect.prepareStatement(sql);
+            pstm = connect.prepareStatement(SQL_COMMAND);
             pstm.setInt(1, objmovies.getMovie_id());
             pstm.execute(database);
             
@@ -32,21 +33,22 @@ public class SelectMovie extends Attributes implements SelectMovieInterface{
             rs = pstm.executeQuery();
             // Check if there is a result 
             if(rs.next()){
-                //if there is a result, retrieve title and price
+                //if there is a result, retrieve movie_id, title and price
+                movie_id = rs.getInt("movie_id");
                 title = rs.getString("title");
                 price = rs.getDouble("price");
+                System.out.println("Movie ID: " + movie_id);
                 System.out.println("Title: " + title);
-                System.out.println("Price: "+ price);
+                System.out.println("Price: " + price);
+                return true;
                 
             }else{
                 System.out.println("Movie not found!");
-            }
-            
-            
-            
+                return false;
+            }     
         }catch (SQLException e){
             System.out.println("Error on SelectMovie " + e);
         }
-        
+        return false;
     }
 }

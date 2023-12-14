@@ -11,5 +11,5 @@ import ReadFile.Movies;
  * @author carol
  */
 public interface SelectMovieInterface {
-    public void selectMovie(Movies objmovies);
+    public boolean selectMovie(Movies objmovies);
 }
