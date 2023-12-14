@@ -16,6 +16,12 @@ import java.sql.SQLException;
  */
 public class Authentication implements AuthenticationInterface{
     
+    /*
+    Methods command
+    Connection to database 
+    Prepared Statement to execute queries
+    */
+    
     Connection connect;
     PreparedStatement pstm;
     
@@ -40,7 +46,7 @@ public class Authentication implements AuthenticationInterface{
             
             return rs;
         } catch (SQLException e) {
-            System.out.println("Autentication: " + e);// Error message.
+            System.out.println("Autentication: " + e);// Autentication Error message.
             return null;
         }
     }
