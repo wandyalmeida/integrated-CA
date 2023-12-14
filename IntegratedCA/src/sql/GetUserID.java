@@ -17,8 +17,8 @@ public class GetUserID implements GetUserIDInterface{
     
     /*
     Methods command
-    Connection to database 
-    Prepared Statement to execute queries
+    Connection 
+    Prepared Statement 
     */
     
     Connection connect;
