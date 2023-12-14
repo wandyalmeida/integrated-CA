@@ -72,7 +72,7 @@ public class CreateInsertDatabase extends Attributes implements CreateInsertData
                             + "moviechart_id INT(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,"
                             + "user_id INT(20) NOT NULL,"
                             + "movie_id INT(20) NOT NULL,"
-                            + "rentData TIMESTAMP,"
+                            + "rentDate TIMESTAMP,"
                             + "CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,"
                             + "CONSTRAINT fk_movie FOREIGN KEY (movie_id) REFERENCES movies(movie_id) ON DELETE CASCADE ON UPDATE CASCADE);"
                             
