@@ -7,11 +7,12 @@ import ReadFile.Movies;
 import java.util.Scanner;
 import sql.InsertMovieChart;
 import sql.SelectMovie;
-import Enum.ShowMenu;
+import ShowMenu.ShowMenu;
+import UserGetSet.User;
 
 
 /**
- *
+ * @author Lucas dos Santos Barbosa
  * @author Wandwilson Almeida Da Silva 2021230
  */
 public class RentMovies {
@@ -20,7 +21,7 @@ public class RentMovies {
      * collect some input from the user to rent the movie.
     **/
        
-    public void RentMovies(int userID){
+    public void RentMovies(User userID) throws InterruptedException{
         Scanner userInput = new Scanner(System.in);
         int movieId, rentConfirm;
         ShowMenu menu = new  ShowMenu();
@@ -29,29 +30,32 @@ public class RentMovies {
         movieId = userInput.nextInt();
         Movies movie = new Movies();
         movie.setMovie_id(movieId);
-        SelectMovie selectMovie = new SelectMovie();
-        selectMovie.selectMovie(movie);
+        SelectMovie selectMovie = new SelectMovie();        
+        System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        System.out.println("Please can you confirm that you are renting this movie ");
         
-        System.out.println("Please can you confirm that you are renting this movie " + movieId);
-        System.out.println("1[Yes] \n2[No]");
-        rentConfirm = userInput.nextInt();
-        switch (rentConfirm){
-            case 1:
-                System.out.println("Movie rented"); 
-                InsertMovieChart moviechart = new InsertMovieChart();
-                moviechart.InsertMovieChart(userID, movieId);
-                menu.showMenu(userID); 
-                break;
-            case 2:
-                System.out.println("Movie not rented");
-                menu.showMenu(userID);
-                break;
-            default:
-                System.out.println("Sorry wrong option. Try again..");
-                RentMovies(userID);
-                
-                
+        if (selectMovie.selectMovie(movie)){
+            System.out.println("1: [Yes] \n2: [No]");
+            rentConfirm = userInput.nextInt();
+            
+            switch (rentConfirm){
+                case 1:
+                    System.out.println("Movie rented");
+                    System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                    InsertMovieChart moviechart = new InsertMovieChart();
+                    moviechart.InsertMovieChart(userID.getUserId(), movieId);
+                    menu.showMenu(userID); 
+                    break;
+                case 2:
+                    System.out.println("Movie not rented");
+                    menu.showMenu(userID);
+                    break;
+                default:
+                    System.out.println("Sorry wrong option. Try again..");
+                    RentMovies(userID);
+
+
+            }
         }
     }
-    
 }

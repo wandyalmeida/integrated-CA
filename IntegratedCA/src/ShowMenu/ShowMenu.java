@@ -2,13 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Enum;
+package ShowMenu;
 
 import java.util.Scanner;
 import Enum.MovieMenu.MenuOption;
+import InitialScreen.InitialScreen;
 import RentMovie.RentMovies;
 import UserGetSet.User;
 import java.util.concurrent.TimeUnit;
+import sql.RentMoviesDB;
 import sql.SeeMovies;
 import sql.Top5;
 
@@ -17,9 +19,10 @@ import sql.Top5;
  *
  * @author Lucas dos Santos Barbosa
  */
-public class ShowMenu {
+public class ShowMenu implements ShowMenuInterface{
     
     //This method gets the input of the user and display a menu with two options
+    @Override
     public void showMenu(User userID) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         MenuOption[] options = MenuOption.values();
@@ -50,13 +53,23 @@ public class ShowMenu {
                     rent.RentMovies(userID);
                     break;
                 case 2:
-                    RentMovies rentMovies = new RentMovies();
-                    System.exit(0);
+                    RentMoviesDB rentMovies = new RentMoviesDB();
+                    rentMovies.rentMoviesDB(userID);
                     break;
+                case 3:
+                    InitialScreen start = new InitialScreen();
+                    System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                    System.out.println("Bye see you soon!");
+                    start.initialScreen();
+                    break;
+                default:
+                    System.out.println("Sorry, this option is not valid");
+                    showMenu(userID);
             }
             
             }else {
                 System.out.println("Sorry, this option is not valid\n");
+                showMenu(userID);
             }
         }
     }

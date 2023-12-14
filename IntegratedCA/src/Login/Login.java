@@ -8,7 +8,7 @@ import java.util.Scanner;
 import sql.Authentication;
 import sql.GetUserID;
 import sql.SeeMovies;
-import Enum.ShowMenu;
+import ShowMenu.ShowMenu;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;

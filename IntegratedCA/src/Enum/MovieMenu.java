@@ -14,8 +14,9 @@ package Enum;
 public class MovieMenu {
  
     public enum MenuOption {
-    SEE_MOVIES("Check our movies"),
-    EXIT("log out");
+    SEE_MOVIES("Rent our movies"),
+    SEE_RENTS("See your movies rented"),
+    LOG_OUT("log out");
     
 
     private final String option;
