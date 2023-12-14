@@ -27,7 +27,7 @@ public class Authentication implements AuthenticationInterface{
         
         try {
             
-            String sql = "select * from users where email = ? and password = ?";
+            String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
             
             
             pstm = connect.prepareStatement(sql);

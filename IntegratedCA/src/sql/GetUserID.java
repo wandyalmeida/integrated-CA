@@ -15,20 +15,26 @@ import java.sql.SQLException;
  */
 public class GetUserID implements GetUserIDInterface{
     
+    /*
+    Methods command
+    Connection to database 
+    Prepared Statement to execute queries
+    */
+    
     Connection connect;
     PreparedStatement pstm;
     ResultSet rs;
     
      @Override
     public int getId(String email, String password){
-        String SQL_COMMAND = "select * from users where email = ? and password = ?";
+        String SQL_COMMAND = "SELECT * FROM users WHERE email = ? AND password = ?";
 
         int id_user = 0;
         
         
         try {
              /*
-            
+                Get user ID 
             */
             connect = new ConnectionRTE().connectDB();
             pstm = connect.prepareStatement(SQL_COMMAND);

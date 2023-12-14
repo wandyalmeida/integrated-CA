@@ -19,6 +19,8 @@ public class CreateInsertDatabase implements CreateInsertDatabaseInterface {
     
     /*
     Methods command
+    Connection - connect to database
+    Prepared Statement - executing queries with parameters
     */
     Connection connect;
     PreparedStatement pstm;
@@ -85,6 +87,7 @@ public class CreateInsertDatabase implements CreateInsertDatabaseInterface {
                             + "moviechart_id INT(20) NOT NULL PRIMARY KEY AUTO_INCREMENT,"
                             + "user_id INT(20) NOT NULL,"
                             + "movie_id INT(20) NOT NULL,"
+                            + "rentData TIMESTAMP,"
                             + "CONSTRAINT fk_user FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,"
                             + "CONSTRAINT fk_movie FOREIGN KEY (movie_id) REFERENCES movies(movie_id) ON DELETE CASCADE ON UPDATE CASCADE);"
                             

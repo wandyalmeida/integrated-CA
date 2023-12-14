@@ -14,19 +14,28 @@ import sql.ConnectionRTE;
 /**
  *
  * @author Carolina Landim 2021226
+ * 
+ *  This is class is to Insert information to Database
+ *  The method is to add movies and price into a table called Movies
  */
 public class InsertMovie implements InsertMovieInterface {
+    
+    /*
+    Methods command
+    Connection to database 
+    Prepared Statement to execute queries
+    */
     
     Connection connect;
     PreparedStatement pstm;
     /* 
-        Insert the movie titles and prices on the DataBase.
+    *   Insert all the movie titles and prices on the DataBase.
     */
 
     @Override
     public void InsertMovie(ArrayList<Movies> objgetmovie){
        
-       String SQL_COMMAND = "insert into movies (title , price ) values (?, ?)";// insert the new name movie and price on the DataBase.
+       String SQL_COMMAND = "INSERT INTO movies (title , price ) VALUES (?, ?)";// insert the new name movie and price on the DataBase.
 
         connect = new ConnectionRTE().connectDB();
 
@@ -45,7 +54,7 @@ public class InsertMovie implements InsertMovieInterface {
             pstm.executeBatch(); // Execute once a list of movies           
             
         } catch (SQLException e) {
-            System.out.println("Get Movie: " + e);
+            System.out.println("Insert Movie: " + e);// Error message from InsertMovie class
         }
     }
     
