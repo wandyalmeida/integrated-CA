@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  *
  * @author Charles Rocha
  */
-public class EmailValidation {
+public class EmailValidation implements EmailValidatorInterface {
     
     /**
      * The following regular expression validates an email address with the following criteria:

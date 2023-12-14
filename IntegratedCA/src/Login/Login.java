@@ -23,13 +23,12 @@ public class Login implements LoginInterface {
     ShowMenu menu = new ShowMenu();
     GetUserID user = new GetUserID();
     User registeredUser = new User();
+    String email, password;
+    ResultSet rs;
 
     @Override
     public void login() {
         try {
-
-            String email, password;
-            ResultSet rs;
 
             do {
                 System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
