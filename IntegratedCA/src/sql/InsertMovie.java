@@ -5,29 +5,18 @@
 package sql;
 
 import ReadFile.Movies;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import sql.ConnectionRTE;
 
-/**
+ /*
  *
  * @author Carolina Landim 2021226
  * 
  *  This is class is to Insert information to Database
  *  The method is to add movies and price into a table called Movies
  */
-public class InsertMovie implements InsertMovieInterface {
+public class InsertMovie extends Attributes implements InsertMovieInterface {
     
-    /*
-    Methods command
-    Connection to database 
-    Prepared Statement to execute queries
-    */
-    
-    Connection connect;
-    PreparedStatement pstm;
     /* 
     *   Insert all the movie titles and prices on the DataBase.
     */
@@ -35,16 +24,14 @@ public class InsertMovie implements InsertMovieInterface {
     @Override
     public void InsertMovie(ArrayList<Movies> objgetmovie){
        
-       String SQL_COMMAND = "INSERT INTO movies (title , price ) VALUES (?, ?)";// insert the new name movie and price on the DataBase.
-
-        connect = new ConnectionRTE().connectDB();
+       SQL_COMMAND = "INSERT INTO movies (title , price ) VALUES (?, ?)";// insert the new name movie and price on the DataBase.
 
         try {
             /*
             Statement for collecting data from document that will give the 
             required information : movie title and price.
             */
-            connect.createStatement().execute("USE rteplayer;");
+            connect.createStatement().execute(database);
             pstm = connect.prepareStatement(SQL_COMMAND);
             for (Movies movie : objgetmovie) {
                 pstm.setString(1, movie.getTitle());// set and get the movie.

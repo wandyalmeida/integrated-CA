@@ -21,10 +21,10 @@ public class Authentication extends Attributes implements AuthenticationInterfac
         
         try {
             
-            String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+            SQL_COMMAND = "SELECT * FROM users WHERE email = ? AND password = ?";
             
             
-            pstm = connect.prepareStatement(sql);
+            pstm = connect.prepareStatement(SQL_COMMAND);
             pstm.setString(1, objUserRTE.getEmail());
             pstm.setString(2, objUserRTE.getPassword());
             

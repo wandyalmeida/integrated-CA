@@ -23,12 +23,12 @@ public class RentMoviesDB extends Attributes implements RentMoviesDBInterface{
         
         // SQL Commands 
         try{
-            String sql = "SELECT DISTINCT a.movie_id, m.title, m.price FROM movie_chart a " +
+            SQL_COMMAND = "SELECT DISTINCT a.movie_id, m.title, m.price FROM movie_chart a " +
                          "JOIN movies m ON a.movie_id = m.movie_id " +
                          "WHERE a.user_id = ? AND TIMESTAMPDIFF(MINUTE, a.rentDate, NOW()) < 1 " +
                          "ORDER BY a.movie_id ASC ";
             
-            pstm = connect.prepareStatement(sql);
+            pstm = connect.prepareStatement(SQL_COMMAND);
             pstm.setInt(1, objuser.getUserId());
             pstm.execute(database);
             rs = pstm.executeQuery();
