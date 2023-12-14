@@ -6,7 +6,12 @@ package Enum;
 
 import java.util.Scanner;
 import Enum.MovieMenu.MenuOption;
+import RentMovie.RentMovies;
+import UserGetSet.User;
+import java.util.concurrent.TimeUnit;
 import sql.SeeMovies;
+import sql.Top5;
+
 
 /**
  *
@@ -15,7 +20,7 @@ import sql.SeeMovies;
 public class ShowMenu {
     
     //This method gets the input of the user and display a menu with two options
-    public void showMenu(int userID) {
+    public void showMenu(User userID) throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
         MenuOption[] options = MenuOption.values();
         
@@ -34,12 +39,18 @@ public class ShowMenu {
             if (userInput.matches("[1-2]")) {
                 int choice = Integer.parseInt(userInput);
             //Switch with the values of options
-            switch (options[choice]) {
-                case SEE_MOVIES:
+            switch (choice) {
+                case 1:
                     SeeMovies seeMovies = new SeeMovies();
+                    Top5 top5 = new Top5();
+                    top5.Top5();
+                    TimeUnit.SECONDS.sleep(1);
                     seeMovies.seeMovies();
+                    RentMovies rent = new RentMovies();
+                    rent.RentMovies(userID);
                     break;
-                case EXIT:
+                case 2:
+                    RentMovies rentMovies = new RentMovies();
                     System.exit(0);
                     break;
             }
