@@ -4,9 +4,6 @@
  */
 package sql;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -16,7 +13,7 @@ import java.sql.SQLException;
  * This class will display all movies that it is stored in the database
  * and will give some information such as id, title and price of the movies.
  */
-public class SeeMovies implements SeeMoviesInterface {
+public class SeeMovies extends Attributes implements SeeMoviesInterface {
     
     /*
     Show the movies table
@@ -29,29 +26,18 @@ public class SeeMovies implements SeeMoviesInterface {
             int movie_id; 
             String title;
             double price;
-        
-        Methods: 
-            pstm = Prepare Statment.
-            rs = ResultSet
-            connection = Connection
-            */
-        
-        String SQL_COMMAND;
+        */         
         int movie_id; 
         String title;
         double price;
-        Connection connect;
-        PreparedStatement pstm;
-        ResultSet rs;
-        
         
         try {
             //This method will show all movies stored in the database
             SQL_COMMAND = "SELECT * FROM movies ";//Get movies table
-            connect = new ConnectionRTE().connectDB();
+            
             pstm = connect.prepareStatement(SQL_COMMAND);
             
-            pstm.execute("USE rteplayer;");
+            pstm.execute(database);
             rs = pstm.executeQuery();
             
             System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");

@@ -4,32 +4,23 @@
  */
 package sql;
 
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
  *
  * @author Carolina Landim 2021226
  */
-public class InsertMovieChart implements InsertMovieChartInterface {
-    
-    Connection connect;
-    PreparedStatement pstm;
-    
+public class InsertMovieChart extends Attributes implements InsertMovieChartInterface {
     @Override
     public void InsertMovieChart(int user_id, int movie_id){
-     String SQL_COMMAND = "INSERT INTO movie_chart (user_id , movie_id, rentDate ) VALUES (?, ?, CURRENT_TIMESTAMP)";// insert the user id and movie id on table Movie Chart.
-     
-      connect = new ConnectionRTE().connectDB();
+     SQL_COMMAND = "INSERT INTO movie_chart (user_id , movie_id, rentDate ) VALUES (?, ?, CURRENT_TIMESTAMP)";// insert the user id and movie id on table Movie Chart.
 
         try {
             /*
             Statement for collecting data from document that will give the 
             required information : user id and movie id.
             */
-            connect.createStatement().execute("USE rteplayer;");
+            connect.createStatement().execute(database);
             pstm = connect.prepareStatement(SQL_COMMAND);
            
             pstm.setInt(1, user_id);// set and get user id.

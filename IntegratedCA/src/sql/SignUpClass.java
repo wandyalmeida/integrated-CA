@@ -4,36 +4,22 @@
  */
 package sql;
 
-import java.sql.Connection;
 import UserGetSet.User;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /**
  *
  * @author Carolina Landim 2021226
  */
-public class SignUpClass implements SignUpClassInterface{
-    
+public class SignUpClass extends Attributes implements SignUpClassInterface{
     /*
-    Methods command
-    Connection 
-    Prepared Statement 
+     Insert the new Users on the DataBase.
     */
-    
-    Connection connect;
-    PreparedStatement pstm;
-    /*
-        
-        insert the new Users on the DataBase.
-    */
-
     @Override
     public void Sign_Up(User objsign_up){
        
-       String SQL_COMMAND = "INSERT INTO  users ( email, password, name, surname) VALUES (?, ?, ?, ?)";// insert the new user on the DataBase.
+       SQL_COMMAND = "INSERT INTO  users ( email, password, name, surname) VALUES (?, ?, ?, ?)";// insert the new user on the DataBase.
 
-        connect = new ConnectionRTE().connectDB();
 
         try {
             /*
@@ -45,7 +31,7 @@ public class SignUpClass implements SignUpClassInterface{
             pstm.setString(3, objsign_up.getName());// set and get the name.
             pstm.setString(4, objsign_up.getSurname());// set and get the surname.
             
-            pstm.execute("USE rteplayer;");
+            pstm.execute(database);
             pstm.execute();
             pstm.close();
         } catch (SQLException e) {

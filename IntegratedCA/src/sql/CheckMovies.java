@@ -5,9 +5,6 @@
 package sql;
 
 import ReadFile.Movies;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -20,30 +17,18 @@ import java.util.ArrayList;
  * This class it is project to confirm the movies in database 
  * is the same as in the csv file.
  */
-public class CheckMovies implements CheckMoviesInterface {
+public class CheckMovies extends Attributes implements CheckMoviesInterface { 
     
-    /*
-    Methods command
-    Connection 
-    Prepared Statement 
-    */
-    
-    Connection connect;
-    ResultSet rs;
-    PreparedStatement pstm;
-    
-   
   // Check the movies title in the csv file it is in Database 
     @Override
     public boolean CheckMovies(ArrayList<Movies> movieName){
-         connect = new ConnectionRTE().connectDB();
 
-           String SQL_COMMAND = "SELECT COUNT(*) as count FROM movies WHERE title = ?";
+           SQL_COMMAND = "SELECT COUNT(*) as count FROM movies WHERE title = ?";
            try {
                for (Movies movie : movieName) {
                pstm = connect.prepareStatement(SQL_COMMAND);
                pstm.setString(1, movie.getTitle());
-               pstm.execute("USE rteplayer;");
+               pstm.execute(database);
                pstm.execute();
                rs = pstm.executeQuery();
                rs.next();

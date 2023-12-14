@@ -5,40 +5,28 @@
 package sql;
 
 import ReadFile.Movies;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  *
- * @author carol
+ * @author Carolina Landim 20212226
  */
-public class SelectMovie implements SelectMovieInterface{
+public class SelectMovie extends Attributes implements SelectMovieInterface{
     
-    /*
-    Methods command
-    Connection 
-    Prepared Statement 
-    */
-    
-    Connection connect;
-    PreparedStatement pstm;
-    ResultSet rs;
+    // Variables
     String title;
     double price;
     
     @Override
     public void selectMovie(Movies objmovies){
         
-        connect = new ConnectionRTE().connectDB();
         
         try{
             String sql = "SELECT * FROM movies WHERE movie_id = ?";
             
             pstm = connect.prepareStatement(sql);
             pstm.setInt(1, objmovies.getMovie_id());
-            pstm.execute("USE rteplayer;");
+            pstm.execute(database);
             
             // Execute the sql query and get the result set
             rs = pstm.executeQuery();

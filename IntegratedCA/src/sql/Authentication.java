@@ -5,8 +5,6 @@
 package sql;
 
 import UserGetSet.User;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -14,22 +12,12 @@ import java.sql.SQLException;
  *
  * @author Carolina Landim 2021226
  */
-public class Authentication implements AuthenticationInterface{
-    
-    /*
-    Methods command
-    Connection to database 
-    Prepared Statement to execute queries
-    */
-    
-    Connection connect;
-    PreparedStatement pstm;
-    
+public class Authentication extends Attributes implements AuthenticationInterface{
+     
     // Analise and if it is correct, authenticated user in database
     
      @Override
     public ResultSet autenticationUesr(User objUserRTE) {
-          connect = new ConnectionRTE().connectDB();
         
         try {
             
@@ -41,7 +29,7 @@ public class Authentication implements AuthenticationInterface{
             pstm.setString(2, objUserRTE.getPassword());
             
            
-            pstm.execute("USE rteplayer;");
+            pstm.execute(database);
             ResultSet rs = pstm.executeQuery();
             
             return rs;

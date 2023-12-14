@@ -4,30 +4,16 @@
  */
 package sql;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
  *
  * @author Carolina Landim 2021226
  */
-public class GetUserID implements GetUserIDInterface{
-    
-    /*
-    Methods command
-    Connection 
-    Prepared Statement 
-    */
-    
-    Connection connect;
-    PreparedStatement pstm;
-    ResultSet rs;
-    
-     @Override
+public class GetUserID extends Attributes implements GetUserIDInterface{
+    @Override
     public int getId(String email, String password){
-        String SQL_COMMAND = "SELECT * FROM users WHERE email = ? AND password = ?";
+        SQL_COMMAND = "SELECT * FROM users WHERE email = ? AND password = ?";
 
         int id_user = 0;
         
@@ -36,13 +22,12 @@ public class GetUserID implements GetUserIDInterface{
              /*
                 Get user ID 
             */
-            connect = new ConnectionRTE().connectDB();
             pstm = connect.prepareStatement(SQL_COMMAND);
             
             pstm.setString(1, email);//set the username to get the id
             pstm.setString(2, password);//set the password to get id
             
-            pstm.execute("USE rteplayer;");
+            pstm.execute(database);
             rs = pstm.executeQuery();
             if(rs.next()){
                 id_user = rs.getInt("user_id");//get the id from the user
