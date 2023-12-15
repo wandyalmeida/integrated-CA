@@ -39,7 +39,7 @@ public class ShowMenu implements ShowMenuInterface{
             //reading the user input
             String userInput = scanner.nextLine();
             
-            if (userInput.matches("[1-2]")) {
+            if (userInput.matches("[1-3]")) {
                 int choice = Integer.parseInt(userInput);
             //Switch with the values of options
             switch (choice) {
