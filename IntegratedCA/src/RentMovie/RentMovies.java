@@ -13,7 +13,7 @@ import java.util.InputMismatchException;
 
 
 /**
- * @author Lucas dos Santos Barbosa
+ * @author Lucas dos Santos Barbosa - 2021337
  * @author Wandwilson Almeida Da Silva 2021230
  */
 public class RentMovies {
