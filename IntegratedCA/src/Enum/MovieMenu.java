@@ -7,7 +7,7 @@ package Enum;
 
 /**
  *
- * @author Lucas dos Santos Barbosa
+ * @author Lucas dos Santos Barbosa - 2021337
  */
 
 //enum creation for the menu
