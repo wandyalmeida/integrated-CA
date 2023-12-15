@@ -17,13 +17,21 @@ import sql.InsertMovie;
  *
  * @author Wandwilson Almeida 2021230
  */
+
+
 public class CSVReader extends FileIO implements CSVReaderInterface {
-    private int numColumns;
-    private String[] header;
-    private Map<String, Integer> columnIndexMap = new HashMap<>();
-    private CheckMovies checkMovies = new CheckMovies();
-    private InsertMovie insertMovie = new InsertMovie();
-    private Movies movie = new Movies();
+    /**
+     * This class is work with one method that will
+     * extends the FileIO and implements the CSVReaderInterface
+     * the method is working to collect the CSV file and prepare the data
+     * from the CSV and sent all the file to a DataBase.
+     */
+    private int numColumns; 
+    private String[] header; 
+    private Map<String, Integer> columnIndexMap;
+    private final CheckMovies checkMovies = new CheckMovies();
+    private final InsertMovie insertMovie = new InsertMovie();
+    private Movies movie;
     
     @Override
     public ArrayList<Movies> readData() {
