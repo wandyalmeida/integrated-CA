@@ -6,8 +6,12 @@ package ReadFile;
 
 /**
  *
- * @author Wandwilson Almeida 2021230
+ * @author Wandwilson Almeida Da Silva 2021230
  */
+
+/*
+    This class is the get and set the movie title, price and the id. 
+*/
 public class Movies {
     private String title;
     private double price;
