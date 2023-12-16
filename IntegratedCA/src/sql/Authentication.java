@@ -30,7 +30,7 @@ public class Authentication extends Attributes implements AuthenticationInterfac
             
            
             pstm.execute(database);
-            ResultSet rs = pstm.executeQuery();
+            rs = pstm.executeQuery();
             
             return rs;
         } catch (SQLException e) {
