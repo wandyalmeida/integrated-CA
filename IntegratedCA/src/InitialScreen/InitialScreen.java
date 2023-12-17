@@ -8,6 +8,9 @@ import java.util.Scanner;
 /**
  *
  * @author Charles Rocha
+ * This class shows the first screen to the user
+ * Then the user has the option to login if already has  a login or sign Up to create a login
+ * Once it is logged, it will show a menu
  */
 public class InitialScreen implements InitialScreenInterface {
     

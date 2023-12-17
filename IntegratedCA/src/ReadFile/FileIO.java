@@ -6,8 +6,8 @@ package ReadFile;
 
 /**
  *
- * @author Wandwilson Almeida 2021230
+ * @author Wandwilson Almeida Da Silva 2021230
  */
 public class FileIO {
-    protected String fileName = "Movie_Metadata";
+    protected String fileName = "Movie_Metadata";// this is the name of the file where are all the movies.
 }

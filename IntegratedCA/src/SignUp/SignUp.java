@@ -20,13 +20,14 @@ public class SignUp implements SignUpInterface {
     public void SignUpUser() {
         String email, password, name, surname;
 
-        //The following process will signUp an user
+        //The following process will see if the user is inserting a valid email
         System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
         System.out.println("email:");
         email = userInput.next();
         if (!validation.emailValidator(email)) {
             System.out.println("Email not valid. \nYou should type like something@validmail.com\nTry again");
             SignUpUser();
+            //Now the user will insert each of the following informations
         } else {
             System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
             System.out.println("password:");
@@ -39,6 +40,7 @@ public class SignUp implements SignUpInterface {
             surname = userInput.next();
             System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-.-");
 
+            //And then all the information will be set in their proper place
             signUpUser.setEmail(email);
             signUpUser.setPassword(password);
             signUpUser.setName(name);
