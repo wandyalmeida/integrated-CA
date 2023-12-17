@@ -16,7 +16,7 @@ import java.util.InputMismatchException;
  * @author Lucas dos Santos Barbosa - 2021337
  * @author Wandwilson Almeida Da Silva 2021230
  */
-public class RentMovies {
+public class RentMovies implements RentMovieInterface{
     /**
      * This class will Display to user to rent the movie and
      * collect some input from the user to rent the movie
@@ -31,6 +31,7 @@ public class RentMovies {
     ShowMenu menu = new  ShowMenu();
     InsertMovieChart moviechart = new InsertMovieChart();
        
+    @Override
     public void RentMovies(User userID) throws InterruptedException{
         // We use a do loop to check if the user is put an Integer to choose the movie by ID.
         do {
