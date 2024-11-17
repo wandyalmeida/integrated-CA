@@ -36,7 +36,7 @@ For the software planning part of the project, each team is required to create t
 
 <div style="display: inline_block"><br>
   <img align="center" alt="wandy-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-plain.svg">
-  <img align="center" alt="wandy-sqlite" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg">
+  <img align="center" alt="mysql" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg">
 </div>
 
 ##
